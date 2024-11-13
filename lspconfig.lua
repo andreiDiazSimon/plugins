@@ -34,6 +34,11 @@ return {
     Lua = {}
   }
 }
+
+require('lspconfig').vtsls.setup{}
+require('lspconfig').quick_lint_js.setup{}
+require('lspconfig').eslint.setup{}
+
 	end
 }
 
