@@ -1,5 +1,5 @@
 return {
--- nvim-cmp sources for various completions
+{ 'echasnovski/mini.nvim', version = '*' },
   {
     "hrsh7th/cmp-nvim-lsp",
   },
