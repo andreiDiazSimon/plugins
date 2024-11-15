@@ -21,9 +21,9 @@ defaults = {
 	sorting_strategy = 'ascending',
 	layout_strategy = 'cursor', 
 	layout_config = {
-		width = 0.5, 
-		height = 0.5,
-		preview_width = 0.5,
+		width = 0.6, 
+		height = 0.3,
+		preview_width = 0.6,
 	},
 	wrap_results = true,
 	prompt_prefix = "Ɛ=> ",
