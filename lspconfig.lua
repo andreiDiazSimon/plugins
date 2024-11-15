@@ -3,6 +3,7 @@ return {
 	config = function()
 		require'lspconfig'.lua_ls.setup {
   on_init = function(client)
+	      local vim = require('vim')
     if client.workspace_folders then
       local path = client.workspace_folders[1].name
       if vim.uv.fs_stat(path..'/.luarc.json') or vim.uv.fs_stat(path..'/.luarc.jsonc') then
@@ -35,11 +36,24 @@ return {
   }
 }
 
+
+
 require('lspconfig').vtsls.setup{}
 require('lspconfig').quick_lint_js.setup{}
 require('lspconfig').eslint.setup{}
 
 	end
+
 }
+
+
+
+
+
+
+
+
+
+
 
 
