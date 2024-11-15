@@ -1,6 +1,7 @@
 return {
 	"neovim/nvim-lspconfig",
 	config = function()
+---------------LSP FOR LUA-----------------
 		require'lspconfig'.lua_ls.setup {
   on_init = function(client)
 	      local vim = require('vim')
@@ -35,12 +36,11 @@ return {
     Lua = {}
   }
 }
+---------------LSP FOR LUA-----------------
 
-
-
-require('lspconfig').vtsls.setup{}
-require('lspconfig').quick_lint_js.setup{}
-require('lspconfig').eslint.setup{}
+---------------LSP FOR JS/TS-----------------
+require('lspconfig').ts_ls.setup{}
+---------------LSP FOR JS/TS-----------------
 
 	end
 

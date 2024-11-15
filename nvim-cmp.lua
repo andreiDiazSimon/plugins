@@ -6,6 +6,9 @@ return {
 
  local cmp = require'cmp'
 
+
+
+
   cmp.setup({
     snippet = {
       -- REQUIRED - you must specify a snippet engine
@@ -19,8 +22,8 @@ return {
       end,
     },
     window = {
-      -- completion = cmp.config.window.bordered(),
-      -- documentation = cmp.config.window.bordered(),
+      completion = cmp.config.window.bordered(),
+      documentation = cmp.config.window.bordered(),
     },
     mapping = cmp.mapping.preset.insert({
       ['<C-b>'] = cmp.mapping.scroll_docs(-4),
@@ -39,7 +42,6 @@ return {
       { name = 'buffer' },
     })
   })
-
   -- To use git you need to install the plugin petertriho/cmp-git and uncomment lines below
   -- Set configuration for specific filetype.
   --[[ cmp.setup.filetype('gitcommit', {
@@ -52,6 +54,7 @@ return {
  require("cmp_git").setup() ]]-- 
 
   -- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
+
   cmp.setup.cmdline({ '/', '?' }, {
     mapping = cmp.mapping.preset.cmdline(),
     sources = {
@@ -76,6 +79,15 @@ return {
     capabilities = capabilities
   }
   ----------------- lua_ls with nvim-cmp ko gago ----------------- 
+
+
+
+  ----------------- ts_ls with nvim-cmp ko gago ----------------- 
+  local capabilities = require('cmp_nvim_lsp').default_capabilities()
+  require('lspconfig')['ts_ls'].setup {
+    capabilities = capabilities
+  }
+  ----------------- ts_ls with nvim-cmp ko gago ----------------- 
 
 	end
 
