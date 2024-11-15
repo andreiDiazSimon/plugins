@@ -3,7 +3,7 @@ return {
   recommended = true,
   desc = "Better Yank/Paste",
   opts = {
-    highlight = { timer = 200 },
+    highlight = { timer = 150 },
   },
   keys = {
     {
