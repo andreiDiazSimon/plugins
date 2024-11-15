@@ -1,19 +1,13 @@
+
 return {
-
-  -- nvim-cmp and its sources
-  { 'hrsh7th/nvim-cmp',
-  	config = function()
-
- local cmp = require'cmp'
-
-
-
+  'hrsh7th/nvim-cmp',
+  config = function()
+  local cmp = require'cmp'
 
   cmp.setup({
     snippet = {
       -- REQUIRED - you must specify a snippet engine
       expand = function(args)
-	      local vim = require('vim')
         vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
         -- require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
         -- require('snippy').expand_snippet(args.body) -- For `snippy` users.
@@ -22,7 +16,7 @@ return {
       end,
     },
     window = {
-      completion = cmp.config.window.bordered(),
+completion = cmp.config.window.bordered(),
       documentation = cmp.config.window.bordered(),
     },
     mapping = cmp.mapping.preset.insert({
@@ -42,6 +36,7 @@ return {
       { name = 'buffer' },
     })
   })
+
   -- To use git you need to install the plugin petertriho/cmp-git and uncomment lines below
   -- Set configuration for specific filetype.
   --[[ cmp.setup.filetype('gitcommit', {
@@ -54,7 +49,6 @@ return {
  require("cmp_git").setup() ]]-- 
 
   -- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
-
   cmp.setup.cmdline({ '/', '?' }, {
     mapping = cmp.mapping.preset.cmdline(),
     sources = {
@@ -73,40 +67,36 @@ return {
     matching = { disallow_symbol_nonprefix_matching = false }
   })
 
-  ----------------- lua_ls with nvim-cmp ko gago ----------------- 
-  local capabilities = require('cmp_nvim_lsp').default_capabilities()
-  require('lspconfig')['lua_ls'].setup {
-    capabilities = capabilities
-  }
-  ----------------- lua_ls with nvim-cmp ko gago ----------------- 
+    -- Setup for specific LSP servers
+    local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
+    -- Lua LSP configuration
+    require('lspconfig')['lua_ls'].setup {
+      capabilities = capabilities
+    }
 
+    -- JavaScript/TypeScript LSP configuration
+    require('lspconfig')['ts_ls'].setup {
+      capabilities = capabilities
+    }
 
-  ----------------- ts_ls with nvim-cmp ko gago ----------------- 
-  local capabilities = require('cmp_nvim_lsp').default_capabilities()
-  require('lspconfig')['ts_ls'].setup {
-    capabilities = capabilities
-  }
-  ----------------- ts_ls with nvim-cmp ko gago ----------------- 
+    -- Emmet language server setup
+    local capabilities_emmet = vim.lsp.protocol.make_client_capabilities()
+    capabilities_emmet.textDocument.completion.completionItem.snippetSupport = true
+    require'lspconfig'.emmet_language_server.setup {
+      capabilities = capabilities_emmet,
+    }
 
-	end
+    -- HTML LSP setup (reuse capabilities)
+    require'lspconfig'.html.setup {
+      capabilities = capabilities_emmet,
+    }
 
-  },
-  { 'hrsh7th/cmp-nvim-lsp' },
-  { 'hrsh7th/cmp-buffer' },
-  { 'hrsh7th/cmp-path' },
-  { 'hrsh7th/cmp-cmdline' },
+    -- CSS LSP setup (reuse capabilities)
+    require'lspconfig'.cssls.setup {
+      capabilities = capabilities_emmet,
+    }
 
-  -- For vsnip users
-  { 'hrsh7th/cmp-vsnip' },
-  { 'hrsh7th/vim-vsnip' },
-
-  -- Uncomment these for other snippet engines
-  -- { 'L3MON4D3/LuaSnip' },
-  -- { 'saadparwaiz1/cmp_luasnip' },
-  -- { 'SirVer/ultisnips' },
-  -- { 'quangnguyen30192/cmp-nvim-ultisnips' },
-  -- { 'dcampos/nvim-snippy' },
-  -- { 'dcampos/cmp-snippy' }
+  end,
 }
 
