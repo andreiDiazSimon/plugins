@@ -12,10 +12,10 @@ return {
 			-- You can configure multiple style with comma separated, For e.g., keywords = 'italic,bold'
 			code_style = {
 				comments = 'none',
-				keywords = 'italic,bold',
-				functions = 'italic,bold',
+				keywords = 'none',
+				functions = 'none',
 				strings = 'none',
-				variables = 'italic,bold'
+				variables = 'none'
 			},
 
 			-- Lualine options --

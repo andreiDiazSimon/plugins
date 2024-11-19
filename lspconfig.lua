@@ -30,6 +30,11 @@ return {
 		})
 		---------------LSP FOR LUA-----------------
 
+
+		---------------LSP FOR TAILWINDCSS-----------------
+		require 'lspconfig'.tailwindcss.setup {}
+		---------------LSP FOR TAILWINDCSS-----------------
+
 		---------------LSP FOR JS/TS-----------------
 		require("lspconfig").ts_ls.setup({})
 		---------------LSP FOR JS/TS-----------------
