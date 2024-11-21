@@ -96,5 +96,11 @@ return {
 		require("lspconfig").cssls.setup({
 			capabilities = capabilities_emmet,
 		})
+
+
+		-- TAILWINDCSS LSP setup (reuse capabilities)
+		require("lspconfig").tailwindcss.setup({
+			capabilities = capabilities,
+		})
 	end,
 }
