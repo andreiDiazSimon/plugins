@@ -2,6 +2,7 @@ return {
 	"neovim/nvim-lspconfig",
 	config = function()
 		---------------LSP FOR LUA-----------------
+		---------------LSP FOR LUA-----------------
 		require("lspconfig").lua_ls.setup({
 			on_init = function(client)
 				local vim = require("vim")
@@ -28,6 +29,7 @@ return {
 				Lua = {},
 			},
 		})
+		---------------LSP FOR LUA-----------------
 		---------------LSP FOR LUA-----------------
 
 
@@ -72,11 +74,11 @@ return {
 				extensionsPath = {},
 				--- @type table<string, any> [Emmet Docs](https://docs.emmet.io/customization/preferences/)
 				preferences = {},
-				--- @type boolean Defaults to `true`
+				--- @type boolean Defaults to true
 				showAbbreviationSuggestions = true,
-				--- @type "always" | "never" Defaults to `"always"`
+				--- @type "always" | "never" Defaults to "always"
 				showExpandedAbbreviation = "always",
-				--- @type boolean Defaults to `false`
+				--- @type boolean Defaults to false
 				showSuggestionsAsSnippets = false,
 				--- @type table<string, any> [Emmet Docs](https://docs.emmet.io/customization/syntax-profiles/)
 				syntaxProfiles = {},
