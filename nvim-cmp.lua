@@ -84,6 +84,12 @@ end		cmp.setup({
 		-- Setup for specific LSP servers
 		local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
+
+		-- Lua BASH configuration
+		require("lspconfig")["bashls"].setup({
+			capabilities = capabilities,
+		})
+
 		-- Lua LSP configuration
 		require("lspconfig")["lua_ls"].setup({
 			capabilities = capabilities,
